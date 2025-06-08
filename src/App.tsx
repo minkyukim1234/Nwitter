@@ -3,8 +3,8 @@ import Layout from "./components/layout";
 import Home from "./routes/home";
 import Profile from "./routes/profile";
 import Login from "./routes/login";
-import CreateAcount from "./routes/createAcount";
-import { createGlobalStyle } from "styled-components";
+import CreateAcount from "./routes/create-account";
+import { styled, createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 import { useEffect, useState } from "react";
 import LoadingScreen from "./components/loadingScreen";
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     element: <Login></Login>,
   },
   {
-    path: "/createAcount",
+    path: "/create-account",
     element: <CreateAcount></CreateAcount>,
   },
 ]);
@@ -41,6 +41,12 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
+const Wrapper = styled.div`
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+`;
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const init = async () => {
@@ -52,14 +58,14 @@ function App() {
     init();
   }, []);
   return (
-    <>
+    <Wrapper>
       <GlobalStyles></GlobalStyles>
       {isLoading ? (
         <LoadingScreen></LoadingScreen>
       ) : (
         <RouterProvider router={router}></RouterProvider>
       )}
-    </>
+    </Wrapper>
   );
 }
 
