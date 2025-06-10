@@ -1,7 +1,4 @@
-import {
-  createUserWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth/cordova";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../firebase";
 import { Link, useNavigate } from "react-router-dom";
@@ -14,6 +11,7 @@ import {
   Error,
   Switcher,
 } from "../components/auth-components";
+import GithubButton from "../components/github-btn";
 
 export default function CreateAcount() {
   const navigate = useNavigate();
@@ -95,6 +93,7 @@ export default function CreateAcount() {
       <Switcher>
         Already have an account? <Link to="/login">Log in &rarr;</Link>
       </Switcher>
+      <GithubButton></GithubButton>
     </Wrapper>
   );
 }

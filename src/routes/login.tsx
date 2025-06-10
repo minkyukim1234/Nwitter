@@ -10,6 +10,8 @@ import {
   Error,
   Switcher,
 } from "../components/auth-components";
+import GithubButton from "../components/github-btn";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 export default function CreateAcount() {
   const navigate = useNavigate();
@@ -75,6 +77,7 @@ export default function CreateAcount() {
         Don't have an account?{" "}
         <Link to="/create-account">Create one &rarr;</Link>
       </Switcher>
+      <GithubButton></GithubButton>
     </Wrapper>
   );
 }
